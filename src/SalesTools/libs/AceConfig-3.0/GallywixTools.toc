@@ -1,0 +1,19 @@
+## Interface: 80300
+## Title: PhoenixTools
+## Notes: Includes several tools to make common operations for Phoenix members easier.
+## Author: Honorax@Illidan
+## Version: 4.0.3
+## SavedVariables: PhoenixToolsDB
+
+#@no-lib-strip@
+libs\libs.xml
+#@end-no-lib-strip@
+
+PhoenixTools.lua
+modules\PhoenixMailSender.lua
+modules\PhoenixMailLogViewer.lua
+modules\PhoenixMailGrabber.lua
+modules\PhoenixGroupInviter.lua
+modules\PhoenixBuyerWhisperer.lua
+modules\PhoenixDepositTransferer.lua
+modules\PhoenixTradeLogViewer.lua
