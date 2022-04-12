@@ -153,19 +153,19 @@ function BalanceList:DrawWindow()
             BalanceList.BalanceAuditFrame:Show()
         end
         local BalanceAuditString = ""
-            local AccountBalance = 0
+        local AccountBalance = 0
 
-            for _, CharBalanceInfo in pairs(self.GlobalSettings.BalanceList) do
-                --if (SalesTools:FormatRawCurrency(CharBalanceInfo["Personal"]) >= 1 or SalesTools:FormatRawCurrency(CharBalanceInfo["Guild"]) >= 1) then
+        for _, CharBalanceInfo in pairs(self.GlobalSettings.BalanceList) do
+            --if (SalesTools:FormatRawCurrency(CharBalanceInfo["Personal"]) >= 1 or SalesTools:FormatRawCurrency(CharBalanceInfo["Guild"]) >= 1) then
 
-                    BalanceAuditString = BalanceAuditString .. _ .. string.char(9) .. CharBalanceInfo["Realm"] .. string.char(9) .. CharBalanceInfo["Faction"] .. string.char(9) .. SalesTools:FormatRawCurrency(CharBalanceInfo["Personal"])  .. string.char(9) .. CharBalanceInfo["GuildName"] .. string.char(9) .. SalesTools:FormatRawCurrency(CharBalanceInfo["Guild"]).. string.char(10)
-        
-                --end
-        
-                
-        
-            end
-            BalanceList.BalanceAuditFrame.EditBox:SetText(BalanceAuditString)
+                BalanceAuditString = BalanceAuditString .. _ .. string.char(9) .. CharBalanceInfo["Realm"] .. string.char(9) .. CharBalanceInfo["Faction"] .. string.char(9) .. SalesTools:FormatRawCurrency(CharBalanceInfo["Personal"])  .. string.char(9) .. CharBalanceInfo["GuildName"] .. string.char(9) .. SalesTools:FormatRawCurrency(CharBalanceInfo["Guild"]).. string.char(10)
+    
+            --end
+    
+            
+    
+        end
+        BalanceList.BalanceAuditFrame.EditBox:SetText(BalanceAuditString)
 
     end)
 
@@ -176,19 +176,22 @@ function BalanceList:DrawReportWindow()
     -- Draw a window with an edit box for our gold audit
     SalesTools:Debug("BalanceList:DrawReportWindow")
 
-    local BalanceAuditFrame = StdUi:Window(UIParent, 450, 600, L["BalanceList_Audit_Window_Title"])
 
+
+    local BalanceAuditFrame = StdUi:Window(UIParent, 720, 960, L["BalanceList_Audit_Window_Title"])
     BalanceAuditFrame:SetPoint('CENTER', UIParent, 'CENTER', 0, 0)
+
     StdUi:MakeResizable(BalanceAuditFrame, "BOTTOMRIGHT")
-    BalanceAuditFrame:SetMaxResize(450, 720)
-    BalanceAuditFrame:SetMinResize(250, 332)
+
+    BalanceAuditFrame:SetMaxResize(960, 1280)
+    BalanceAuditFrame:SetMinResize(600, 800)
     BalanceAuditFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     BalanceAuditFrame:SetScript("OnMouseDown", function(self)
         self:SetFrameLevel(SalesTools:GetNextFrameLevel())
     end)
 
-    local EditBox = StdUi:MultiLineBox(BalanceAuditFrame, 280, 300, nil)
+    local EditBox = StdUi:MultiLineBox(BalanceAuditFrame, 550, 550, nil)
     StdUi:GlueAcross(EditBox, BalanceAuditFrame, 10, -50, -10, 50)
     EditBox:SetFocus()
 
