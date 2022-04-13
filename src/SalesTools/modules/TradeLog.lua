@@ -108,7 +108,7 @@ function TradeLog:OnEvent(event, arg1, arg2, ...)
                 if (self.PendingTradeContents.playerGold > 0) then
                     SendChatMessage(string.format(L["TradeLog_Trade_Gave"], SalesTools:FormatRawCurrency(self.PendingTradeContents.playerGold),self.PendingTradeContents.target,self.GlobalSettings.TradeWhisperSuffix), "WHISPER", "COMMON", self.PendingTradeContents.target)
                 elseif (self.PendingTradeContents.targetGold > 0) then
-                    SendChatMessage(string.format(L["TradeLog_Trade_Received"], SalesTools:FormatRawCurrency(self.PendingTradeContents.playerGold),self.PendingTradeContents.target,self.GlobalSettings.TradeWhisperSuffix), "WHISPER", "COMMON", self.PendingTradeContents.target)
+                    SendChatMessage(string.format(L["TradeLog_Trade_Received"], SalesTools:FormatRawCurrency(self.PendingTradeContents.targetGold),self.PendingTradeContents.target,self.GlobalSettings.TradeWhisperSuffix), "WHISPER", "COMMON", self.PendingTradeContents.target)
                 end
             end
             TradeLog:PrintTradeContents()
