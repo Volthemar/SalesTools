@@ -7,6 +7,16 @@
     - Honorax-Illidan - https://worldofwarcraft.com/en-us/character/us/illidan/honorax (Original author, this addon is largely based on his idea/work)
 --]]
 
+--[[
+    TODO:
+    - Possible refactor/rename back to AdTools
+    - Localisation for ruRU, zhCN, zhTW, etc.
+    - Drop the StdUi dependency (this lib doesn't seem to be actively maintained/developed at the moment)
+    - Make the mail event code less janky (pls make this easier blizzard)
+    - Separate modules into different addons (e.g. SalesTools_Mail, SalesTools_Log, SalesTools_Config, etc.) (this idea might be scrapped)
+    - Add a "SalesTools_Config" module to handle options rather than having it in SalesTools_Main (this idea might be scrapped)
+--]]
+
 -- Basic imports(s)/setup
 local L = LibStub("AceLocale-3.0"):GetLocale("SalesTools") -- Localization support
 SalesTools = LibStub("AceAddon-3.0"):NewAddon("SalesTools", "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0")

@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("SalesTools", "esES", true);
+local L = LibStub("AceLocale-3.0"):NewLocale("SalesTools", "esES", false);
 L = L or {}
 --@non-debug@
 L["Addon_Name"] = "SalesTools"
@@ -114,6 +114,7 @@ L["HelpDisplay_Toggle_Command_Desc"] = "Mostrar/ocultar el panel de ayuda"
 L["HelpDisplay_Toggle_NameDisplay_Command_Desc"] = "Mostrar/ocultar el panel de nombre"
 L["HelpDisplay_Toggle_RealmDisplay_Command_Desc"] = "Mostrar/ocultar el panel de reino"
 L["HelpDisplay_Toggle_GoldDisplay_Command_Desc"] = "Mostrar/ocultar el panel de oro"
+L["HelpDisplay_GoldDisplay_Gold"] = "Oro"
 
 L["CollectorMenu"] = "Menú de Recolector"
 L["CollectorMenu_Primary_Char_Option_Name"] = "Colector de oro principal"

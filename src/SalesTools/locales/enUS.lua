@@ -114,6 +114,7 @@ L["HelpDisplay_Toggle_Command_Desc"] = "Toggle the help display"
 L["HelpDisplay_Toggle_NameDisplay_Command_Desc"] = "Toggle the name display"
 L["HelpDisplay_Toggle_RealmDisplay_Command_Desc"] = "Toggle the realm display"
 L["HelpDisplay_Toggle_GoldDisplay_Command_Desc"] = "Toggle the gold display"
+L["HelpDisplay_GoldDisplay_Gold"] = "Gold"
 
 L["CollectorMenu"] = "Collector Menu"
 L["CollectorMenu_Primary_Char_Option_Name"] = "Primary Collector Character"

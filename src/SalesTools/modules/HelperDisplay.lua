@@ -140,7 +140,7 @@ function HelperDisplay:DrawHelpWindow()
     local gold = math.floor(GetMoney() / 100 / 100)
     frame.GoldDisplay:SetPoint("TOP", frame.NameDisplay, "LEFT", -75, -20)
 
-    frame.GoldDisplay:SetText(SalesTools:CommaValue(gold) .. " Gold")
+    frame.GoldDisplay:SetText(SalesTools:CommaValue(gold) .. " " .. L["HelpDisplay_GoldDisplay_Gold"])
     frame.GoldDisplay:SetScript("OnClick", function()
         local gold = math.floor(GetMoney() / 100 / 100)
         SalesTools:ShowPopup(gold)

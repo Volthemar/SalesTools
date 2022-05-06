@@ -174,9 +174,14 @@ function MassWhisper:Start()
             for subEntry in (entry):gmatch("[^:]+") do
                 table.insert(subEntries, subEntry)
             end
-            if (subEntries[1] and subEntries[2]) then
+            if (subEntries[1]) then
                 local player = MassWhisper:EnsureFullName(subEntries[1])
-                local formattedMessage = self.GlobalSettings.massWhisperMessage:gsub("{custom}", subEntries[2]):gsub("{player}", player)
+                local formattedMessage
+                if (subEntries[2]) then
+                    formattedMessage = self.GlobalSettings.massWhisperMessage:gsub("{custom}", subEntries[2]):gsub("{player}", player)
+                else
+                    formattedMessage = self.GlobalSettings.massWhisperMessage:gsub("{player}", player)
+                end
                 SendChatMessage(formattedMessage, "WHISPER", "COMMON", player)
             end
         end
