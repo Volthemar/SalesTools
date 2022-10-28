@@ -148,7 +148,7 @@ function MailGrabber:DrawImportWindow()
     ImportFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     StdUi:MakeResizable(ImportFrame, "BOTTOMRIGHT")
-    ImportFrame:SetMinResize(250, 332)
+    ImportFrame:SetResizeBounds(250, 332)
 
     ImportFrame:SetScript("OnMouseDown", function(self)
         self:SetFrameLevel(SalesTools:GetNextFrameLevel())
@@ -189,7 +189,7 @@ function MailGrabber:DrawExportWindow()
     ExportFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     StdUi:MakeResizable(ExportFrame, "BOTTOMRIGHT")
-    ExportFrame:SetMinResize(250, 332)
+    ExportFrame:SetResizeBounds(250, 332)
 
     local EditBox = StdUi:MultiLineBox(ExportFrame, 280, 300, MailGrabber:GenerateExportText())
     StdUi:GlueAcross(EditBox, ExportFrame, 10, -50, -10, 50)
