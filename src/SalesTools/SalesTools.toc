@@ -1,7 +1,7 @@
-## Interface: 90205
+## Interface: 100000
 ## Title: .SalesTools
 ## Notes:|cfffe7b2cPackage of several tools & QoL features for Advertising & Gold Collecting in World of Warcraft|r
-## Version: 1.0.1
+## Version: 1.0.2
 ## Author: Emilyp@Illidan / Honorax@Illidan
 ## OptionalDependencies: Ace3, LibDBIcon, LibDataBroker-1.1, LibGuildBankComm-1.0, StdUi
 ## SavedVariables: SalesToolsDB

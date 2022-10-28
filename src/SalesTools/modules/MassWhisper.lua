@@ -96,8 +96,7 @@ function MassWhisper:DrawWindow()
     end
 
     StdUi:MakeResizable(WhisperWindowFrame, "BOTTOMRIGHT")
-    WhisperWindowFrame:SetMinResize(450, 400)
-    WhisperWindowFrame:SetMaxResize(580, 664)
+    WhisperWindowFrame:SetResizeBounds(450, 400, 580, 664)
     WhisperWindowFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     WhisperWindowFrame:SetScript("OnMouseDown", function(self)

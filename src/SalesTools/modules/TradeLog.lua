@@ -265,8 +265,7 @@ function TradeLog:DrawWindow()
 
     StdUi:MakeResizable(LogFrame, "BOTTOMRIGHT")
     StdUi:MakeResizable(LogFrame, "TOPLEFT")
-    LogFrame:SetMaxResize(1280, 720)
-    LogFrame:SetMinResize(850, 250)
+    LogFrame:SetResizeBounds(850, 250, 1280, 720)
     LogFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     local IconFrame = StdUi:Frame(LogFrame, 32, 32)

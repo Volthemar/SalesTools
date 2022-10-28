@@ -131,8 +131,7 @@ function BalanceList:DrawWindow()
     StdUi:MakeResizable(BalanceFrame, "BOTTOMRIGHT")
     StdUi:MakeResizable(BalanceFrame, "TOPLEFT")
 
-    BalanceFrame:SetMaxResize(1280, 720)
-    BalanceFrame:SetMinResize(850, 250)
+    BalanceFrame:SetResizeBounds(850, 250, 1280, 720)
     BalanceFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     local IconFrame = StdUi:Frame(BalanceFrame, 32, 32)
@@ -183,8 +182,7 @@ function BalanceList:DrawReportWindow()
 
     StdUi:MakeResizable(BalanceAuditFrame, "BOTTOMRIGHT")
 
-    BalanceAuditFrame:SetMaxResize(960, 1280)
-    BalanceAuditFrame:SetMinResize(600, 800)
+    BalanceAuditFrame:SetResizeBounds(600, 800, 960, 1280)
     BalanceAuditFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     BalanceAuditFrame:SetScript("OnMouseDown", function(self)

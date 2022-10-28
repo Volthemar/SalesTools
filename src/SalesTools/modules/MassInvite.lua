@@ -64,8 +64,7 @@ function MassInvite:DrawInviteWindow()
     end)
 
     StdUi:MakeResizable(MassInviteFrame, "BOTTOMRIGHT")
-    MassInviteFrame:SetMinResize(250, 332)
-    MassInviteFrame:SetMaxResize(500, 664)
+    MassInviteFrame:SetResizeBounds(250, 332, 500, 664)
     MassInviteFrame:IsUserPlaced(true);
 
     local EditBox = StdUi:MultiLineBox(MassInviteFrame, 280, 300, nil)

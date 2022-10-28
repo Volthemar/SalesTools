@@ -72,8 +72,7 @@ function MailSender:DrawWindow()
     end
 
     StdUi:MakeResizable(MailSenderFrame, "BOTTOMRIGHT")
-    MailSenderFrame:SetMinResize(250, 332)
-    MailSenderFrame:SetMaxResize(500, 664)
+    MailSenderFrame:SetResizeBounds(250, 332, 500, 664)
     MailSenderFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
 
     MailSenderFrame:SetScript("OnMouseDown", function(self)
