@@ -155,6 +155,10 @@ L["MassWhisper_Message_Option_Name"] = "Mass Whisper Message Format"
 L["MassWhisper_Message_Option_Desc"] = "Message format for messages sent with mass whisper"
 L["MassWhisper_Options_No_Empty"] = "Field cannot be empty"
 
+L["NameGrabber_Command_Desc"] = "Opens a list of player names in your current group"
+L["NameGrabber_Window_Title"] = "Name Grabber"
+L["NameGrabber_GetNames_Button"] = "Get Group Names"
+L["NameGrabber_Close_Button"] = "Close"
 
 L["test"] = [=[multi
 line]=]
