@@ -154,6 +154,7 @@ function SalesTools:OnInitialize()
     self.MassInvite = SalesTools:GetModule("MassInvite")
     self.MassWhisper = SalesTools:GetModule("MassWhisper")
     self.CollectorMenu = SalesTools:GetModule("CollectorMenu")
+    self.NameGrabber = SalesTools:GetModule("NameGrabber")
 
     -- Modules to load at runtime
     for name, module in self:IterateModules() do

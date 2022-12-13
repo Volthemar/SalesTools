@@ -155,6 +155,11 @@ L["MassWhisper_Message_Option_Name"] = "Mensaje de formato para susurro masivo"
 L["MassWhisper_Message_Option_Desc"] = "Mensaje de formato para mensajes a enviar con susurro masivo"
 L["MassWhisper_Options_No_Empty"] = "Este espacio no puede quedar en blanco"
 
+L["NameGrabber_Command_Desc"] = "Abre una lista de nombres de los jugadores en el grupo actual"
+L["NameGrabber_Window_Title"] = "Seleccionador de nombres"
+L["NameGrabber_GetNames_Button"] = "Obtener nombres del grupo"
+L["NameGrabber_Close_Button"] = "Cerrar"
+
 
 L["test"] = [=[multi
 line]=]

@@ -232,28 +232,29 @@ local num, itemString
 function lib.eventFrame:GUILDBANKBAGSLOTS_CHANGED()
 	if (((GuildBankFrame and GuildBankFrame:IsVisible()) or (BagnonFrameguildbank and BagnonFrameguildbank:IsVisible())) and GetNumGuildBankTabs() > 0) then
 		local page = GetCurrentGuildBankTab()
+		-- This throws an error right now and isn't necessary so yeet
+		-- --98 slots on a page
+		-- for slot = 1, 98 do
+		-- 	--see if the slot has an item in it
+		-- 	if GetGuildBankItemLink(page, slot) then
+		-- 		--if there is link, parse the ID and place that in table w/ key = slot
+		-- 		_, _, itemString = string.find(GetGuildBankItemLink(page, slot), "^|c%x+|H(.+)|h%[.+%]")
+				
+		-- 		--guildBank[page].links[slot] = itemString
 
-		--98 slots on a page
-		for slot = 1, 98 do
-			--see if the slot has an item in it
-			if GetGuildBankItemLink(page, slot) then
-				--if there is link, parse the ID and place that in table w/ key = slot
-				_, _, itemString = string.find(GetGuildBankItemLink(page, slot), "^|c%x+|H(.+)|h%[.+%]")
-				guildBank[page].links[slot] = itemString
+		-- 		--get item info too, need for stack sizes in image
+		-- 		--_, num = GetGuildBankItemInfo(page, slot)
+		-- 		guildBank[page].stacks[slot] = num
+		-- 	else
+		-- 		-- that slot is empty
+		-- 		guildBank[page].links[slot] = nil
+		-- 		guildBank[page].stacks[slot] = nil
+		-- 	end
+		-- 	num, itemString = nil, nil
+		-- end
 
-				--get item info too, need for stack sizes in image
-				_, num = GetGuildBankItemInfo(page, slot)
-				guildBank[page].stacks[slot] = num
-			else
-				-- that slot is empty
-				guildBank[page].links[slot] = nil
-				guildBank[page].stacks[slot] = nil
-			end
-			num, itemString = nil, nil
-		end
-
-		--save a timestamp for this scan
-		guildBank[page].lastScan = time()
+		-- --save a timestamp for this scan
+		-- guildBank[page].lastScan = time()
 	end
 end
 
