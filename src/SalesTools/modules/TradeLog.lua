@@ -399,7 +399,7 @@ function TradeLog:DrawSearchResultsTable()
         {
             name = L["TradeLog_Viewer_Date"],
             width = 215,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "date",
             format = "string",
             defaultSort = "asc"
@@ -407,14 +407,14 @@ function TradeLog:DrawSearchResultsTable()
         {
             name = L["TradeLog_Viewer_You"],
             width = 100,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "player",
             format = "string",
         },
         {
             name = L["TradeLog_Viewer_Your_Gold"],
             width = 100,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "playerGold",
             format = "money",
         },
@@ -448,7 +448,7 @@ function TradeLog:DrawSearchResultsTable()
         {
             name = L["TradeLog_Viewer_Their_Gold"],
             width = 100,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "targetGold",
             format = "money",
         },
