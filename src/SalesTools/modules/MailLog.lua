@@ -268,7 +268,7 @@ function MailLog:DrawSearchResultsTable()
         {
             name = L["MailLog_Viewer_DateSent"],
             width = 225,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "date",
             format = "string",
             defaultSort = "asc"
@@ -276,14 +276,14 @@ function MailLog:DrawSearchResultsTable()
         {
             name = L["MailLog_Viewer_Sender"],
             width = 150,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "source",
             format = "string",
         },
         {
             name = L["MailLog_Viewer_Recipient"],
             width = 150,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "destination",
             format = "string",
         },
@@ -304,7 +304,7 @@ function MailLog:DrawSearchResultsTable()
         {
             name = L["MailLog_Viewer_DateLooted"],
             width = 150,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "openedDate",
             format = "string",
             compareSort = function(self, rowA, rowB, sortBy)
