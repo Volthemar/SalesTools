@@ -263,7 +263,7 @@ function BalanceList:DrawSearchResultsTable()
         {
             name = L["BalanceList_Viewer_Character"],
             width = 150,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "name",
             format = "string",
             defaultSort = "asc"
@@ -271,7 +271,7 @@ function BalanceList:DrawSearchResultsTable()
         {
             name = L["BalanceList_Viewer_Realm"],
             width = 100,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "realm",
             format = "string",
             defaultSort = "asc"
@@ -279,14 +279,14 @@ function BalanceList:DrawSearchResultsTable()
         {
             name = L["BalanceList_Viewer_Balance"],
             width = 125,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "balance",
             format = "money",
         },
         {
             name = L["BalanceList_Viewer_Guild"],
             width = 100,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "guildname",
             format = "string",
             defaultSort = "asc"
@@ -294,7 +294,7 @@ function BalanceList:DrawSearchResultsTable()
         {
             name = L["BalanceList_Viewer_Guild_Balance"],
             width = 125,
-            align = "MIDDLE",
+            align = "CENTER",
             index = "guildmoney",
             format = "money",
         },
