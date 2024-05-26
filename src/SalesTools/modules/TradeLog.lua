@@ -5,6 +5,9 @@ local TradeLog = SalesTools:NewModule("TradeLog", "AceEvent-3.0", "AceHook-3.0",
 local StdUi = LibStub("StdUi")
 
 function TradeLog:OnEnable()
+    -- Assign StdUi from SalesTools
+    self.StdUi = SalesTools.StdUi		
+
     -- Run when the module is enabled
     SalesTools:Debug("TradeLog:OnEnable")
 
@@ -232,6 +235,8 @@ function TradeLog:DrawWindow()
     -- Draw our Trade Logs Window
     SalesTools:Debug("TradeLog:DrawWindow")
 
+    local StdUi = self.StdUi
+
     local LogFrame
     if (self.CharacterSettings.LogFrameSize ~= nil) then
         LogFrame = StdUi:Window(UIParent, self.CharacterSettings.LogFrameSize.width, self.CharacterSettings.LogFrameSize.height, "Trade Log Viewer")
@@ -284,8 +289,40 @@ function TradeLog:DrawWindow()
         TradeLog:DrawClearWarningWindow()
     end)
 
+    local TradeAuditButton = StdUi:Button(LogFrame, 128, 16, L["TradeLog_AuditButton"])
+    StdUi:GlueBottom(TradeAuditButton, LogFrame, 160, 10, "CENTER")	
+
+    TradeAuditButton:SetScript("OnClick", function()
+	if(TradeLog.TradeAuditFrame == nil) then
+		TradeLog:DrawReportWindow()
+	else
+		TradeLog.TradeAuditFrame:Show()
+	end
+
+	local TradeAuditString = ""
+	local name, realm = UnitFullName("player")
+	local player = name .. "-" .. realm
+	
+	for _, trade in pairs(self.GlobalSettings.TradeLog) do
+		if trade.player == player then
+			TradeAuditString = TradeAuditString .. _ .. string.char(9) .. trade.date .. string.char(9) .. trade.player .. string.char(9) .. SalesTools:FormatRawCurrency(trade.playerGold) .. string.char(9) .. TradeLog:trim(trade.playerItems) .. string.char(9) .. trade.target .. string.char(9) .. SalesTools:FormatRawCurrency(trade.targetGold) .. string.char(9) .. TradeLog:trim(trade.targetItems) .. string.char(10)
+		end
+	end
+	TradeLog.TradeAuditFrame.EditBox:SetText(TradeAuditString)
+
+    end)	
+
     self.LogFrame = LogFrame
 end
+
+function TradeLog:trim(s)
+    if s == nil then
+        return ""
+    end
+    local trimmed = (s:match("^%s*(.-)%s*$")):gsub("|n", " ")
+    return trimmed
+end
+
 
 function TradeLog:DrawClearWarningWindow()
     -- Draw a warning window for deleting all table entries
@@ -309,6 +346,45 @@ function TradeLog:DrawClearWarningWindow()
     }
 
     StdUi:Confirm("Clear Log", L["TradeLog_Clear_Warning"], buttons, 1)
+end
+
+
+function TradeLog:DrawReportWindow()
+    -- Draw a window with an edit box for our gold audit
+    SalesTools:Debug("TradeLog:DrawReportWindow")
+
+    local StdUi = self.StdUi
+
+    local TradeAuditFrame = StdUi:Window(UIParent, 720, 960, L["TradeLog_Audit_Window_Title"])
+    TradeAuditFrame:SetPoint('CENTER', UIParent, 'CENTER', 0, 0)
+
+    StdUi:MakeResizable(TradeAuditFrame, "BOTTOMRIGHT")
+
+    TradeAuditFrame:SetResizeBounds(600, 800, 960, 1280)
+    TradeAuditFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
+
+    TradeAuditFrame:SetScript("OnMouseDown", function(self)
+        self:SetFrameLevel(SalesTools:GetNextFrameLevel())
+    end)
+
+    local EditBox = StdUi:MultiLineBox(TradeAuditFrame, 550, 550, nil)
+    StdUi:GlueAcross(EditBox, TradeAuditFrame, 10, -50, -10, 50)
+    EditBox:SetFocus()
+
+    local CloseAuditFrameButton = StdUi:Button(TradeAuditFrame, 80, 30, L["TradeLog_Audit_Window_Close_Button"])
+    StdUi:GlueBottom(CloseAuditFrameButton, TradeAuditFrame, 0, 10, 'CENTER')
+    CloseAuditFrameButton:SetScript('OnClick', function()
+        TradeLog.TradeAuditFrame:Hide()
+    end)
+
+    local IconFrame = StdUi:Frame(TradeAuditFrame, 32, 32)
+    local IconTexture = StdUi:Texture(IconFrame, 32, 32, SalesTools.AddonIcon)
+    StdUi:GlueTop(IconTexture, IconFrame, 0, 0, "CENTER")
+    StdUi:GlueBottom(IconFrame, TradeAuditFrame, -10, 10, "RIGHT")
+
+    self.TradeAuditFrame = TradeAuditFrame
+    self.TradeAuditFrame.CloseAuditFrameButton = CloseAuditFrameButton
+    self.TradeAuditFrame.EditBox = EditBox
 end
 
 function TradeLog:ClearTradesForCharacter()
@@ -342,6 +418,8 @@ end
 function TradeLog:DrawSearchPane()
     -- Draw the search box
     SalesTools:Debug("TradeLog:DrawSearchPane")
+
+    local StdUi = self.StdUi
 
     local LogFrame = self.LogFrame
     local SearchBox = StdUi:Autocomplete(LogFrame, 400, 30, "", nil, nil, nil)

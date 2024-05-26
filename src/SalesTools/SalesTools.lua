@@ -23,6 +23,9 @@ SalesTools = LibStub("AceAddon-3.0"):NewAddon("SalesTools", "AceConsole-3.0", "A
 local StdUi = LibStub('StdUi')
 local LibDBIcon = LibStub("LibDBIcon-1.0")
 
+-- Temporal Assignment of StdUi
+SalesTools.StdUi = StdUi
+
 -- Global for our addon object
 _G["SalesTools"] = SalesTools
 

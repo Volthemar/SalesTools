@@ -145,13 +145,77 @@ function MailLog:DrawWindow()
     StdUi:GlueBottom(LogFrame.ResultsLabel, LogFrame, 10, 5, "LEFT")
 
     local clearButton = StdUi:Button(LogFrame, 128, 16, L["MailLog_Clear_Button"])
-    StdUi:GlueBottom(clearButton, LogFrame, 0, 10, "CENTER")
+    StdUi:GlueBottom(clearButton, LogFrame, 5, 10, "CENTER")
 
     clearButton:SetScript("OnClick", function()
         MailLog:DrawClearWarningWindow()
     end)
+	
+    local MailAuditButton = StdUi:Button(LogFrame, 128, 16, L["MailLog_AuditButton"])
+    StdUi:GlueBottom(MailAuditButton, LogFrame, 160, 10, "CENTER")
+
+    MailAuditButton:SetScript("OnClick", function()
+	if(MailLog.MailAuditFrame == nil) then
+		MailLog:DrawReportWindow()
+	else
+		MailLog.MailAuditFrame:Show()
+	end
+
+	local MailAuditString = ""
+	local name, realm = UnitFullName("player")
+	local player = name .. "-" .. realm
+	
+	for _, mail in pairs(self.GlobalSettings.MailLog) do
+		if mail.source == player or mail.destination == player then
+			MailAuditString = MailAuditString .. _ .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. 			string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. mail.body ..string.char(10)
+		end
+	end
+	MailLog.MailAuditFrame.EditBox:SetText(MailAuditString)
+
+    end)	
+			 	
 
     self.LogFrame = LogFrame
+
+    
+end
+
+function MailLog:DrawReportWindow()
+    -- Draw a window with an edit box for our gold audit
+    SalesTools:Debug("MailLog:DrawReportWindow")
+
+
+
+    local MailAuditFrame = StdUi:Window(UIParent, 720, 960, L["MailLog_Audit_Window_Title"])
+    MailAuditFrame:SetPoint('CENTER', UIParent, 'CENTER', 0, 0)
+
+    StdUi:MakeResizable(MailAuditFrame, "BOTTOMRIGHT")
+
+    MailAuditFrame:SetResizeBounds(600, 800, 960, 1280)
+    MailAuditFrame:SetFrameLevel(SalesTools:GetNextFrameLevel())
+
+    MailAuditFrame:SetScript("OnMouseDown", function(self)
+        self:SetFrameLevel(SalesTools:GetNextFrameLevel())
+    end)
+
+    local EditBox = StdUi:MultiLineBox(MailAuditFrame, 550, 550, nil)
+    StdUi:GlueAcross(EditBox, MailAuditFrame, 10, -50, -10, 50)
+    EditBox:SetFocus()
+
+    local CloseAuditFrameButton = StdUi:Button(MailAuditFrame, 80, 30, L["MailLog_Audit_Window_Close_Button"])
+    StdUi:GlueBottom(CloseAuditFrameButton, MailAuditFrame, 0, 10, 'CENTER')
+    CloseAuditFrameButton:SetScript('OnClick', function()
+        MailLog.MailAuditFrame:Hide()
+    end)
+
+    local IconFrame = StdUi:Frame(MailAuditFrame, 32, 32)
+    local IconTexture = StdUi:Texture(IconFrame, 32, 32, SalesTools.AddonIcon)
+    StdUi:GlueTop(IconTexture, IconFrame, 0, 0, "CENTER")
+    StdUi:GlueBottom(IconFrame, MailAuditFrame, -10, 10, "RIGHT")
+
+    self.MailAuditFrame = MailAuditFrame
+    self.MailAuditFrame.CloseAuditFrameButton = CloseAuditFrameButton
+    self.MailAuditFrame.EditBox = EditBox
 end
 
 function MailLog:DrawClearWarningWindow()

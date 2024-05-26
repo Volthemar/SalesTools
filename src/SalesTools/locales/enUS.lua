@@ -44,6 +44,10 @@ L["MailLog_Viewer_Gold"] = "Gold"
 L["MailLog_Viewer_Subject"] = "Subject"
 L["MailLog_Viewer_DateLooted"] = "Date Looted"
 L["MailLog_Viewer_Body"] = "Body"
+L["MailLog_AuditButton"] = "Export Data"
+L["MailLog_Audit_Window_Title"] = "Mail Audit"
+L["MailLog_Audit_Window_Close_Button"] = "Close"
+
 
 
 L["MailGrabber_Skip_GoldCap"] = "Skipped code %s, attached gold would cause us to exceed gold cap"
@@ -79,6 +83,9 @@ L["TradeLog_Viewer_Your_Items"] = "Your Offer (Items)"
 L["TradeLog_Viewer_Target"] = "Target"
 L["TradeLog_Viewer_Their_Gold"] = "Target Offer (Gold)"
 L["TradeLog_Viewer_Their_Items"] = "Target Offer (Items)"
+L["TradeLog_AuditButton"] = "Export Data"
+L["TradeLog_Audit_Window_Title"] = "Trade Audit"
+L["TradeLog_Audit_Window_Close_Button"] = "Close"
 
 L["BalanceList"] = "Balance List"
 L["BalanceList_Toggle"] = "Toggle Balance List"
