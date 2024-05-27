@@ -304,7 +304,9 @@ function TradeLog:DrawWindow()
 	local player = name .. "-" .. realm
 	
 	for _, trade in pairs(self.GlobalSettings.TradeLog) do
-		if trade.player == player then
+		if LogFrame.AllCharactersOption:GetChecked() then
+			TradeAuditString = TradeAuditString .. string.char(9) .. trade.date .. string.char(9) .. trade.player .. string.char(9) .. SalesTools:FormatRawCurrency(trade.playerGold) .. string.char(9) .. TradeLog:trim(trade.playerItems) .. string.char(9) .. trade.target .. string.char(9) .. SalesTools:FormatRawCurrency(trade.targetGold) .. string.char(9) .. TradeLog:trim(trade.targetItems) .. string.char(10)
+		elseif trade.player == player then
 			TradeAuditString = TradeAuditString .. string.char(9) .. trade.date .. string.char(9) .. trade.player .. string.char(9) .. SalesTools:FormatRawCurrency(trade.playerGold) .. string.char(9) .. TradeLog:trim(trade.playerItems) .. string.char(9) .. trade.target .. string.char(9) .. SalesTools:FormatRawCurrency(trade.targetGold) .. string.char(9) .. TradeLog:trim(trade.targetItems) .. string.char(10)
 		end
 	end
