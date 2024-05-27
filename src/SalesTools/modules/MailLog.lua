@@ -167,9 +167,9 @@ function MailLog:DrawWindow()
 	
 	for _, mail in pairs(self.GlobalSettings.MailLog) do
 		if mail.destination == player then
-			MailAuditString = MailAuditString .. _ .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. mail.openedDate  .. string.char(9) .. mail.body ..string.char(10)
+			MailAuditString = MailAuditString .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. mail.openedDate  .. string.char(9) .. mail.body ..string.char(10)
         elseif mail.source == player then
-            MailAuditString = MailAuditString .. _ .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. "" .. string.char(9) .. mail.body ..string.char(10)
+            MailAuditString = MailAuditString .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. "" .. string.char(9) .. mail.body ..string.char(10)
         end    
     end
 	MailLog.MailAuditFrame.EditBox:SetText(MailAuditString)
