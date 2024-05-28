@@ -172,7 +172,7 @@ function MailLog:DrawWindow()
 			else
 				    MailAuditString = MailAuditString .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. mail.openedDate  .. string.char(9) .. mail.body ..string.char(10)
 			end		
-		elseif mail.source == player then
+		elseif mail.source == player or mail.destination == player then
 			 if mail.openedDate == nil then
 			        MailAuditString = MailAuditString .. string.char(9) .. mail.date .. string.char(9) .. mail.source .. string.char(9) .. mail.destination .. string.char(9) .. SalesTools:FormatRawCurrency(mail.gold) .. string.char(9) .. mail.subject .. string.char(9) .. "" .. string.char(9) .. mail.body ..string.char(10)
 			else
